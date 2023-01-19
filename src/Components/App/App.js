@@ -30,14 +30,12 @@ export class App extends React.Component {
   }
 
   removeTrack(track) {
-    let newState = this.state.playlistTracks;
-
-    newState.filter(existingTrack => existingTrack !== track);
+    let newState = this.state.playlistTracks.filter(existingTrack => existingTrack !== track);
     this.setState({playlistTracks: newState});
   }
 
-  updatePlaylistName(name) {
-    this.setState({playlistName: name});
+  updatePlaylistName(newName) {
+    this.setState({playlistName: newName});
   }
 
   savePlaylist() {
@@ -68,7 +66,7 @@ export class App extends React.Component {
             {/*<!-- Add a SearchResults component -->*/}
             <SearchResults searchResults = {this.state.searchResults} onAdd = {this.addTrack} />
             {/*<!-- Add a Playlist component -->*/}
-            <Playlist playlistName = {this.state.playlistName} playlistTracks = {this.state.playlistTracks} onRemove = {this.onRemove} onNameChange = {this.updatePlaylistName} onSave = {this.savePlaylist} />
+            <Playlist playlistName = {this.state.playlistName} playlistTracks = {this.state.playlistTracks} onRemove = {this.removeTrack} onNameChange = {this.updatePlaylistName} onSave = {this.savePlaylist} />
           </div>
         </div>
       </div>
