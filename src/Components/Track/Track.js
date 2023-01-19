@@ -19,9 +19,9 @@ export class Track extends React.Component {
 
     trackAction() {
         if (this.props.isRemoval) {
-            return <button onClick={this.removeTrack} className="Track-action">"-"</button>;
+            return <button onClick={this.removeTrack} className="Track-action">-</button>;
         } else {
-            return <button onClick={this.addTrack} className="Track-action">"+"</button>;
+            return <button onClick={this.addTrack} className="Track-action">+</button>;
         }
     }
 
@@ -29,8 +29,8 @@ export class Track extends React.Component {
         return (
             <div className="Track">
                 <div className="Track-information">
-                    <h3>{this.props.track}{/*<!-- track name will go here -->*/}</h3>
-                    <p>{this.props.track} + " | " + {this.props.track}{/*<!-- track artist will go here--> | <!-- track album will go here -->*/}</p>
+                    <h3>{this.props.track.name}{/*<!-- track name will go here -->*/}</h3>
+                    <p>{this.props.track.artist}  |  {this.props.track.album}{/*<!-- track artist will go here--> | <!-- track album will go here -->*/}</p>
                 </div>
                 {this.trackAction()}{/*<!-- + or - will go here -->*/}
             </div>
